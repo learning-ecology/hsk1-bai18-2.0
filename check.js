@@ -1,0 +1,116 @@
+const LESSON = {
+  title:"在房间里", pinyin:"Zài fángjiān lǐ", en:"In the room",
+  level:"HSK 1", duration:"120 phút",
+  objectives:[
+    {vi:"Hiểu và dùng từ vựng về phòng ở và sinh hoạt buổi sáng: thức dậy, rửa mặt, tắm.",
+     en:"Understand and use vocabulary about the room and morning routine: get up, wash the face, take a bath."},
+    {vi:"Dùng cấu trúc 先……然后…… để diễn tả trình tự các hành động.",
+     en:"Use the structure 先… 然后… to describe the sequence of actions."}
+  ],
+  // ------- TỪ VỰNG (12 từ mới) -------
+  words:[
+    {id:"w1", han:"房间", py:"fángjiān", pos:"danh từ · n.", vi:"phòng", en:"room",
+      ex:{han:"我的房间很大。", py:"Wǒ de fángjiān hěn dà.", vi:"Phòng của tôi rất to.", en:"My room is big."}},
+    {id:"w2", han:"床", py:"chuáng", pos:"danh từ · n.", vi:"giường", en:"bed",
+      ex:{han:"房间里有一张床。", py:"Fángjiān lǐ yǒu yì zhāng chuáng.", vi:"Trong phòng có một cái giường.", en:"There is a bed in the room."}},
+    {id:"w3", han:"起床", py:"qǐchuáng", pos:"động từ · v.", vi:"thức dậy", en:"to get up",
+      ex:{han:"我七点起床。", py:"Wǒ qī diǎn qǐchuáng.", vi:"Tôi thức dậy lúc bảy giờ.", en:"I get up at seven."}},
+    {id:"w4", han:"里面", py:"lǐmiàn", pos:"danh từ · n.", vi:"bên trong", en:"inside",
+      ex:{han:"我在房间里面。", py:"Wǒ zài fángjiān lǐmiàn.", vi:"Tôi ở bên trong phòng.", en:"I am inside the room."}},
+    {id:"w5", han:"外面", py:"wàimiàn", pos:"danh từ · n.", vi:"bên ngoài", en:"outside",
+      ex:{han:"外面有一个窗户。", py:"Wàimiàn yǒu yí ge chuānghu.", vi:"Bên ngoài có một cửa sổ.", en:"There is a window outside."}},
+    {id:"w6", han:"洗", py:"xǐ", pos:"động từ · v.", vi:"rửa", en:"to wash",
+      ex:{han:"我洗脸。", py:"Wǒ xǐ liǎn.", vi:"Tôi rửa mặt.", en:"I wash my face."}},
+    {id:"w7", han:"洗澡", py:"xǐzǎo", pos:"động từ · v.", vi:"tắm", en:"to take a bath",
+      ex:{han:"我先洗澡，然后睡觉。", py:"Wǒ xiān xǐzǎo, ránhòu shuìjiào.", vi:"Tôi tắm trước, sau đó đi ngủ.", en:"I take a bath first, then sleep."}},
+    {id:"w8", han:"窗户", py:"chuānghu", pos:"danh từ · n.", vi:"cửa sổ", en:"window",
+      ex:{han:"我的房间有一个大窗户。", py:"Wǒ de fángjiān yǒu yí ge dà chuānghu.", vi:"Phòng của tôi có một cửa sổ lớn.", en:"My room has a big window."}},
+    {id:"w9", han:"进", py:"jìn", pos:"động từ · v.", vi:"vào", en:"to enter",
+      ex:{han:"他先进房间。", py:"Tā xiān jìn fángjiān.", vi:"Anh ấy vào phòng trước.", en:"He enters the room first."}},
+    {id:"w10", han:"出来", py:"chūlái", pos:"động từ · v.", vi:"đi ra", en:"to come out",
+      ex:{han:"我从房间里出来。", py:"Wǒ cóng fángjiān lǐ chūlái.", vi:"Tôi đi ra từ trong phòng.", en:"I come out of the room."}},
+    {id:"w11", han:"脸", py:"liǎn", pos:"danh từ · n.", vi:"mặt", en:"face",
+      ex:{han:"我先洗脸。", py:"Wǒ xiān xǐ liǎn.", vi:"Tôi rửa mặt trước.", en:"I wash my face first."}},
+    {id:"w12", han:"快", py:"kuài", pos:"tính từ · adj.", vi:"nhanh", en:"fast; quick",
+      ex:{han:"快起床！", py:"Kuài qǐchuáng!", vi:"Mau thức dậy đi!", en:"Get up quickly!"}}
+  ],
+  // ------- HÁN TỰ (16 chữ) · gif=null => hiển thị placeholder. Dán Base64 Data URI để thêm GIF. -------
+  chars:[
+    {c:"房", py:"fáng", vi:"phòng; nhà", en:"room; house", strokes:8, gif:null},
+    {c:"间", py:"jiān", vi:"gian; khoảng", en:"room; between", strokes:7, gif:null},
+    {c:"床", py:"chuáng", vi:"giường", en:"bed", strokes:7, gif:null},
+    {c:"起", py:"qǐ", vi:"dậy; nổi lên", en:"to rise", strokes:10, gif:null},
+    {c:"里", py:"lǐ", vi:"bên trong; dặm", en:"inside", strokes:7, gif:null},
+    {c:"面", py:"miàn", vi:"mặt; phía", en:"face; side", strokes:9, gif:null},
+    {c:"外", py:"wài", vi:"ngoài", en:"outside", strokes:5, gif:null},
+    {c:"洗", py:"xǐ", vi:"rửa; giặt", en:"to wash", strokes:9, gif:null},
+    {c:"澡", py:"zǎo", vi:"tắm rửa", en:"to bathe", strokes:16, gif:null},
+    {c:"窗", py:"chuāng", vi:"cửa sổ", en:"window", strokes:12, gif:null},
+    {c:"户", py:"hù", vi:"cửa; hộ", en:"door; household", strokes:4, gif:null},
+    {c:"进", py:"jìn", vi:"vào; tiến", en:"to enter", strokes:7, gif:null},
+    {c:"出", py:"chū", vi:"ra", en:"to go out", strokes:5, gif:null},
+    {c:"来", py:"lái", vi:"đến; tới", en:"to come", strokes:7, gif:null},
+    {c:"脸", py:"liǎn", vi:"mặt", en:"face", strokes:11, gif:null},
+    {c:"快", py:"kuài", vi:"nhanh", en:"fast", strokes:7, gif:null}
+  ],
+  // ------- NGỮ PHÁP -------
+  grammar:{
+    point:"Cấu trúc 先……然后…… (trước tiên…, sau đó…)",
+    intro:"Bài học có điểm ngữ pháp cơ bản: dùng 先……然后…… để nối hai hành động xảy ra theo thứ tự trước – sau.",
+    blocks:[
+      {h:"1. 先 (xiān)……然后 (ránhòu)…… — trước tiên…, sau đó…",
+       body:"Dùng để diễn tả hai hành động xảy ra theo trình tự: 先 đặt trước hành động làm trước, 然后 đặt trước hành động làm sau. Cấu trúc: 先 + Động tác 1，然后 + Động tác 2.",
+       formula:[["先 + Động tác 1","làm việc thứ nhất trước"],
+                ["然后 + Động tác 2","sau đó làm việc thứ hai"]],
+       ex:[{han:"我先起床，然后洗脸。",py:"Wǒ xiān qǐchuáng, ránhòu xǐ liǎn.",vi:"Tôi thức dậy trước, sau đó rửa mặt."},
+           {han:"我先洗澡，然后睡觉。",py:"Wǒ xiān xǐzǎo, ránhòu shuìjiào.",vi:"Tôi tắm trước, sau đó đi ngủ."}]},
+      {h:"2. Mở rộng — kết hợp với 以后",
+       body:"Có thể dùng 以后 (sau khi) để nói một việc xảy ra sau việc khác. Ví dụ: 起床以后 (sau khi thức dậy), 洗澡以后 (sau khi tắm).",
+       formula:[["起床以后","sau khi thức dậy"],
+                ["洗澡以后","sau khi tắm"],
+                ["先……然后……","trước tiên… sau đó…"]],
+       ex:[{han:"起床以后，我洗脸。",py:"Qǐchuáng yǐhòu, wǒ xǐ liǎn.",vi:"Sau khi thức dậy, tôi rửa mặt."},
+           {han:"他先进房间，然后出来。",py:"Tā xiān jìn fángjiān, ránhòu chūlái.",vi:"Anh ấy vào phòng trước, sau đó đi ra."}]}
+    ]
+  },
+  // ------- BÀI ĐỌC (3 đoạn) -------
+  texts:[
+    {title:"Hội thoại — 对话", context:"Buổi sáng, hai bạn nói về việc thức dậy và sinh hoạt buổi sáng.",
+     lines:[
+       {sp:"A", sppy:"A", han:"你几点起床？", py:"Nǐ jǐ diǎn qǐchuáng?", vi:"Bạn thức dậy lúc mấy giờ?"},
+       {sp:"B", sppy:"B", han:"我七点起床。", py:"Wǒ qī diǎn qǐchuáng.", vi:"Tôi thức dậy lúc bảy giờ."},
+       {sp:"A", sppy:"A", han:"起床以后做什么？", py:"Qǐchuáng yǐhòu zuò shénme?", vi:"Sau khi thức dậy bạn làm gì?"},
+       {sp:"B", sppy:"B", han:"我先洗脸，然后洗澡。", py:"Wǒ xiān xǐ liǎn, ránhòu xǐzǎo.", vi:"Tôi rửa mặt trước, sau đó tắm."}
+     ]},
+    {title:"Hội thoại (tiếp) — 对话", context:"Hai bạn nói tiếp về nơi rửa mặt và việc đi học.",
+     lines:[
+       {sp:"A", sppy:"A", han:"你在哪儿洗脸？", py:"Nǐ zài nǎr xǐ liǎn?", vi:"Bạn rửa mặt ở đâu?"},
+       {sp:"B", sppy:"B", han:"我在房间里面洗脸。", py:"Wǒ zài fángjiān lǐmiàn xǐ liǎn.", vi:"Tôi rửa mặt ở bên trong phòng."},
+       {sp:"A", sppy:"A", han:"现在你去哪儿？", py:"Xiànzài nǐ qù nǎr?", vi:"Bây giờ bạn đi đâu?"},
+       {sp:"B", sppy:"B", han:"我出来了，我去学校。", py:"Wǒ chūlái le, wǒ qù xuéxiào.", vi:"Tôi ra rồi, tôi đi đến trường."}
+     ]},
+    {title:"Bài đọc — 我的早上", context:"Đoạn văn ngắn kể về buổi sáng của một bạn học sinh.",
+     lines:[
+       {sp:"我", sppy:"Wǒ", han:"我每天七点起床。", py:"Wǒ měi tiān qī diǎn qǐchuáng.", vi:"Mỗi ngày tôi thức dậy lúc bảy giờ."},
+       {sp:"我", sppy:"Wǒ", han:"我先洗脸，然后洗澡。", py:"Wǒ xiān xǐ liǎn, ránhòu xǐzǎo.", vi:"Tôi rửa mặt trước, sau đó tắm."},
+       {sp:"我", sppy:"Wǒ", han:"我的房间里有一张床和一个大窗户。", py:"Wǒ de fángjiān lǐ yǒu yì zhāng chuáng hé yí ge dà chuānghu.", vi:"Trong phòng của tôi có một cái giường và một cửa sổ lớn."},
+       {sp:"我", sppy:"Wǒ", han:"洗澡以后，我从房间里出来。", py:"Xǐzǎo yǐhòu, wǒ cóng fángjiān lǐ chūlái.", vi:"Sau khi tắm, tôi đi ra từ trong phòng."},
+       {sp:"我", sppy:"Wǒ", han:"然后我去学校。", py:"Ránhòu wǒ qù xuéxiào.", vi:"Sau đó tôi đi đến trường."}
+     ]}
+  ],
+  tongue:[
+    {han:"窗前有床，床前有窗。", py:"Chuāng qián yǒu chuáng, chuáng qián yǒu chuāng.", vi:"Trước cửa sổ có giường, trước giường có cửa sổ."},
+    {han:"先洗脸，然后洗澡。", py:"Xiān xǐ liǎn, ránhòu xǐzǎo.", vi:"Rửa mặt trước, sau đó tắm."}
+  ]
+};
+const WORD_IMG = { w1:'🛋️', w2:'🛏️', w3:'⏰', w4:'📥', w5:'🌳', w6:'🧼',
+                   w7:'🚿', w8:'🪟', w9:'➡️', w10:'🚶', w11:'😊', w12:'⚡' };
+console.log('WORDS', LESSON.words.length);
+console.log('CHARS', LESSON.chars.length);
+console.log('TEXTS', LESSON.texts.length);
+console.log('texts[2].lines[0]', LESSON.texts[2].lines[0].han);
+console.log('words[6]', LESSON.words[6].han, 'words[11]', LESSON.words[11].han);
+console.log('grammar blocks', LESSON.grammar.blocks.length);
+console.log('tongue', LESSON.tongue.length);
+console.log('WORD_IMG keys', Object.keys(WORD_IMG).length);
+console.log('title', LESSON.title, '/', LESSON.pinyin);
