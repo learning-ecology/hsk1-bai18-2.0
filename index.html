@@ -227,7 +227,7 @@ kbd{background:var(--bg2);color:#fff;border-radius:6px;padding:1px 7px;font-size
 <!-- ============================== HEADER ============================== -->
 <header>
   <div class="top">
-    <div class="brand"><span class="logo zh">语</span><span>HSK 1 · Bài 18</span></div>
+    <div class="brand"><span class="logo zh">语</span><span>HSK 1 · Bài 1</span></div>
     <div class="spacer"></div>
     <div class="tool">
       <select id="voiceSelect" title="Chọn giọng đọc tiếng Trung"></select>
@@ -313,22 +313,22 @@ const LESSON = {
   ],
   // ------- NGỮ PHÁP -------
   grammar:{
-    point:"Cấu trúc 先……然后…… (trước tiên…, sau đó…)",
-    intro:"Bài học có điểm ngữ pháp cơ bản: dùng 先……然后…… để nối hai hành động xảy ra theo thứ tự trước – sau.",
+    point:"Bổ ngữ trình độ với 得 (V + 得 + trạng từ)",
+    intro:"Điểm ngữ pháp: dùng 得 (de) để nói một hành động được thực hiện như thế nào (nhanh, chậm, tốt…).",
     blocks:[
-      {h:"1. 先 (xiān)……然后 (ránhòu)…… — trước tiên…, sau đó…",
-       body:"Dùng để diễn tả hai hành động xảy ra theo trình tự: 先 đặt trước hành động làm trước, 然后 đặt trước hành động làm sau. Cấu trúc: 先 + Động tác 1，然后 + Động tác 2.",
-       formula:[["先 + Động tác 1","làm việc thứ nhất trước"],
-                ["然后 + Động tác 2","sau đó làm việc thứ hai"]],
-       ex:[{han:"我先起床，然后洗脸。",py:"Wǒ xiān qǐchuáng, ránhòu xǐ liǎn.",vi:"Tôi thức dậy trước, sau đó rửa mặt."},
-           {han:"我先洗澡，然后睡觉。",py:"Wǒ xiān xǐzǎo, ránhòu shuìjiào.",vi:"Tôi tắm trước, sau đó đi ngủ."}]},
-      {h:"2. Mở rộng — kết hợp với 以后",
-       body:"Có thể dùng 以后 (sau khi) để nói một việc xảy ra sau việc khác. Ví dụ: 起床以后 (sau khi thức dậy), 洗澡以后 (sau khi tắm).",
-       formula:[["起床以后","sau khi thức dậy"],
-                ["洗澡以后","sau khi tắm"],
-                ["先……然后……","trước tiên… sau đó…"]],
-       ex:[{han:"起床以后，我洗脸。",py:"Qǐchuáng yǐhòu, wǒ xǐ liǎn.",vi:"Sau khi thức dậy, tôi rửa mặt."},
-           {han:"他先进房间，然后出来。",py:"Tā xiān jìn fángjiān, ránhòu chūlái.",vi:"Anh ấy vào phòng trước, sau đó đi ra."}]}
+      {h:"1. S + V + 得 + trạng từ/tính từ",
+       body:"Đặt 得 (de) sau động từ để miêu tả mức độ hoặc cách thức của hành động. Công thức: Chủ ngữ + Động từ + 得 + tính từ (thường đi với 很).",
+       formula:[["S + V + 得 + adv","hành động được làm như thế nào"],
+                ["你吃得很快。","Bạn ăn rất nhanh."],
+                ["你写得很快。","Bạn viết rất nhanh."]],
+       ex:[{han:"你吃得很快。",py:"Nǐ chī de hěn kuài.",vi:"Bạn ăn rất nhanh."},
+           {han:"你写得很快。",py:"Nǐ xiě de hěn kuài.",vi:"Bạn viết rất nhanh."}]},
+      {h:"2. Khi có tân ngữ: S + V + N + V + 得 + trạng từ",
+       body:"Khi động từ có tân ngữ (N), phải lặp lại động từ trước 得. Công thức: Chủ ngữ + Động từ + Tân ngữ + Động từ + 得 + tính từ.",
+       formula:[["开车","lái xe"],
+                ["S + V + N + V + 得 + adv","lặp lại động từ khi có tân ngữ"],
+                ["你开车开得很快。","Bạn lái xe rất nhanh."]],
+       ex:[{han:"你开车开得很快。",py:"Nǐ kāichē kāi de hěn kuài.",vi:"Bạn lái xe rất nhanh."}]}
     ]
   },
   // ------- BÀI ĐỌC (3 đoạn) -------
@@ -1239,15 +1239,15 @@ function buildGrammar(c){
   });
   // Bài tập ngữ pháp
   const ex=el('div','card'); ex.innerHTML='<h3>Bài tập ngữ pháp</h3>';
-  ex.appendChild(el('p','<b>a) Nhận diện</b> — chọn cách xưng hô đúng.'));
-  makeMCQ(ex,{key:'gr1', q:'Học sinh chào giáo viên nên dùng:', options:['老师，您好！','老师，你好！','老师，再见！','老师，谢谢！'], correct:0, explain:'Với giáo viên dùng kính ngữ 您.'});
-  ex.appendChild(el('p','<b>b) Hoàn thành câu</b> — thêm 们 để tạo số nhiều.'));
-  makeFill(ex,{key:'gr2', q:'“各bạn học sinh, chào các em!” = 学生___，你们好！', accept:['们'], explain:'学生 + 们 = 学生们.'});
-  makeArrange(ex,{key:'gr3', q:'c) Sắp xếp câu đúng:', tokens:['你们','好'], answer:['你们','好'], explain:'你们好 = Chào các bạn.'});
-  ex.appendChild(el('p','<b>d) Sửa lỗi</b> — câu nào SAI khi chào giáo viên trang trọng?'));
-  makeMCQ(ex,{key:'gr4', q:'Câu SAI về sắc thái lịch sự là:', options:['老师，你好！(nên dùng 您)','老师，您好！','您好！','老师们，您好！'], correct:0, explain:'Với giáo viên nên dùng 您 thay vì 你 để thể hiện sự tôn trọng.'});
-  ex.appendChild(el('p','<b>e) Giao tiếp ngắn</b>'));
-  makeMCQ(ex,{key:'gr5', q:'A nói “谢谢！”, B đáp lại phù hợp là:', options:['不客气！','再见！','您好！','大家好！'], correct:0, explain:'谢谢 → 不客气.'});
+  ex.appendChild(el('p','<b>a) Nhận diện</b> — chọn câu dùng đúng cấu trúc V + 得 + trạng từ.'));
+  makeMCQ(ex,{key:'gr1', q:'Câu nào đúng?', options:['你吃得很快。','你得吃很快。','你很快吃得。','你吃很快得。'], correct:0, explain:'Đúng: Chủ ngữ + Động từ + 得 + tính từ → 你吃得很快。'});
+  ex.appendChild(el('p','<b>b) Hoàn thành câu</b> — điền 得 vào chỗ trống.'));
+  makeFill(ex,{key:'gr2', q:'“Bạn viết rất nhanh” = 你写___很快。', accept:['得'], explain:'你写得很快。= Bạn viết rất nhanh.'});
+  makeArrange(ex,{key:'gr3', q:'c) Sắp xếp câu đúng:', tokens:['你','吃','得','很快'], answer:['你','吃','得','很快'], explain:'你吃得很快。= Bạn ăn rất nhanh.'});
+  ex.appendChild(el('p','<b>d) Câu có tân ngữ</b> — chọn câu đúng khi có tân ngữ (lặp lại động từ).'));
+  makeMCQ(ex,{key:'gr4', q:'“Bạn lái xe rất nhanh” viết đúng là:', options:['你开车开得很快。','你开车得很快。','你开得车很快。','你开车很快得。'], correct:0, explain:'Khi có tân ngữ (车) phải lặp lại động từ 开 trước 得 → 你开车开得很快。'});
+  ex.appendChild(el('p','<b>e) Sắp xếp câu có tân ngữ</b>'));
+  makeArrange(ex,{key:'gr5', q:'Sắp xếp: 你开车开得很快。', tokens:['你','开车','开','得','很快'], answer:['你','开车','开','得','很快'], explain:'你开车开得很快。= Bạn lái xe rất nhanh.'});
   c.appendChild(ex);
   c.appendChild(navFooter('grammar'));
 }
@@ -1372,16 +1372,15 @@ function buildListening(c){
 
   // 9.2 Nghe câu, chọn đáp án
   card=el('div','card'); card.innerHTML='<h3>2 · Nghe câu và chọn tình huống đúng</h3>';
-  const s1=LESSON.texts[2].lines[0]; // 谢谢
-  let b=el('div','ex-block'); let p=el('button','btn btn-accent btn-sm','🔊 Nghe câu'); p.onclick=()=>TTS.speak('谢谢！'); b.appendChild(p);
-  makeMCQ(b,{key:'ls-sent1', q:' Người nói đang:', options:['Cảm ơn','Chào hỏi','Tạm biệt','Xin lỗi'], correct:0, explain:'谢谢 = cảm ơn.'}); card.appendChild(b);
-  b=el('div','ex-block'); p=el('button','btn btn-accent btn-sm','🔊 Nghe câu'); p.onclick=()=>TTS.speak('老师，再见！'); b.appendChild(p);
-  makeMCQ(b,{key:'ls-sent2', q:' Câu này được nói khi nào?', options:['Khi chia tay','Khi mới gặp','Khi cảm ơn','Khi ăn cơm'], correct:0, explain:'再见 = tạm biệt (khi chia tay).'}); card.appendChild(b);
+  let b=el('div','ex-block'); let p=el('button','btn btn-accent btn-sm','🔊 Nghe câu'); p.onclick=()=>TTS.speak('快起床！'); b.appendChild(p);
+  makeMCQ(b,{key:'ls-sent1', q:' Người nói đang:', options:['Giục ai đó dậy nhanh','Chào hỏi','Cảm ơn','Tạm biệt'], correct:0, explain:'快起床！= Mau thức dậy đi!'}); card.appendChild(b);
+  b=el('div','ex-block'); p=el('button','btn btn-accent btn-sm','🔊 Nghe câu'); p.onclick=()=>TTS.speak('我先洗脸，然后洗澡。'); b.appendChild(p);
+  makeMCQ(b,{key:'ls-sent2', q:' Thứ tự các hành động là:', options:['Rửa mặt trước, rồi tắm','Tắm trước, rồi rửa mặt','Chỉ tắm','Chỉ rửa mặt'], correct:0, explain:'先洗脸 → 然后洗澡 = rửa mặt trước, sau đó tắm.'}); card.appendChild(b);
   c.appendChild(card);
 
   // 9.3 Nghe và điền từ
   card=el('div','card'); card.innerHTML='<h3>3 · Nghe và điền từ (Hán tự)</h3>';
-  [{a:'你好',hint:'lời chào'},{a:'不客气',hint:'đáp lời cảm ơn'}].forEach((it,i)=>{
+  [{a:'起床',hint:'thức dậy'},{a:'窗户',hint:'cửa sổ'}].forEach((it,i)=>{
     b=el('div','ex-block'); p=el('button','btn btn-accent btn-sm','🔊 Nghe'); p.onclick=()=>TTS.speak(it.a); b.appendChild(p);
     makeFill(b,{key:'ls-fill'+i, q:' Viết lại từ vừa nghe ('+it.hint+'):', accept:[it.a], explain:'Đáp án: <span class="zh">'+it.a+'</span>.'}); card.appendChild(b);
   });
@@ -1389,17 +1388,17 @@ function buildListening(c){
 
   // 9.4 Nghe và sắp xếp câu
   card=el('div','card'); card.innerHTML='<h3>4 · Nghe rồi sắp xếp lại câu</h3>';
-  b=el('div','ex-block'); p=el('button','btn btn-accent btn-sm','🔊 Nghe câu'); p.onclick=()=>TTS.speak('老师，您好！'); b.appendChild(p);
-  makeArrange(b,{key:'ls-arr', q:' Sắp xếp các từ theo câu vừa nghe:', tokens:['老师','您好'], answer:['老师','您好'], explain:'老师，您好！'}); card.appendChild(b);
+  b=el('div','ex-block'); p=el('button','btn btn-accent btn-sm','🔊 Nghe câu'); p.onclick=()=>TTS.speak('我七点起床。'); b.appendChild(p);
+  makeArrange(b,{key:'ls-arr', q:' Sắp xếp các từ theo câu vừa nghe:', tokens:['我','七点','起床'], answer:['我','七点','起床'], explain:'我七点起床。= Tôi thức dậy lúc bảy giờ.'}); card.appendChild(b);
   c.appendChild(card);
 
   // 9.5 Nghe hội thoại ngắn
   card=el('div','card'); card.innerHTML='<h3>5 · Nghe hội thoại ngắn</h3>';
   b=el('div','ex-block');
   p=el('button','btn btn-accent btn-sm','🔊 Nghe hội thoại');
-  p.onclick=()=>{ TTS.speak('谢谢！',{onend:()=>setTimeout(()=>TTS.speak('不客气！'),400)}); };
+  p.onclick=()=>{ TTS.speak('你几点起床？',{onend:()=>setTimeout(()=>TTS.speak('我七点起床。'),400)}); };
   b.appendChild(p);
-  makeMCQ(b,{key:'ls-dia', q:' Hội thoại này nói về:', options:['Cảm ơn và đáp lễ','Chào buổi sáng','Giới thiệu tên','Tạm biệt'], correct:0, explain:'谢谢 → 不客气 (cảm ơn – không có gì).'});
+  makeMCQ(b,{key:'ls-dia', q:' Hội thoại này nói về:', options:['Hỏi giờ thức dậy','Cảm ơn và đáp lễ','Chào buổi sáng','Tạm biệt'], correct:0, explain:'你几点起床？→ 我七点起床。(hỏi – đáp về giờ thức dậy).'});
   card.appendChild(b);
   c.appendChild(card);
   c.appendChild(navFooter('listen'));
@@ -1413,30 +1412,30 @@ function buildWriting(c){
   // A) Sắp xếp từ thành câu (6 câu)
   let card=el('div','card'); card.innerHTML='<h3>A · Sắp xếp từ/cụm từ thành câu</h3>';
   const arr=[
-    {t:['老师','您好'],a:['老师','您好'],e:'老师，您好！= Thưa thầy/cô, em chào ạ.'},
-    {t:['大家','好'],a:['大家','好'],e:'大家好！= Chào mọi người!'},
-    {t:['同学们','再见'],a:['同学们','再见'],e:'同学们，再见！= Các bạn, tạm biệt!'},
-    {t:['谢谢','老师'],a:['谢谢','老师'],e:'谢谢老师！= Cảm ơn thầy/cô!'},
-    {t:['你们','好'],a:['你们','好'],e:'你们好！= Chào các bạn!'},
-    {t:['老师','再见'],a:['老师','再见'],e:'老师，再见！= Tạm biệt thầy/cô!'}
+    {t:['我','七点','起床'],a:['我','七点','起床'],e:'我七点起床。= Tôi thức dậy lúc bảy giờ.'},
+    {t:['房间里','有','一张床'],a:['房间里','有','一张床'],e:'房间里有一张床。= Trong phòng có một cái giường.'},
+    {t:['我先洗脸','然后洗澡'],a:['我先洗脸','然后洗澡'],e:'我先洗脸，然后洗澡。= Tôi rửa mặt trước, sau đó tắm.'},
+    {t:['我','从房间里','出来'],a:['我','从房间里','出来'],e:'我从房间里出来。= Tôi đi ra từ trong phòng.'},
+    {t:['房间里','有','一个大窗户'],a:['房间里','有','一个大窗户'],e:'房间里有一个大窗户。= Trong phòng có một cửa sổ lớn.'},
+    {t:['快','起床'],a:['快','起床'],e:'快起床！= Mau thức dậy đi!'}
   ];
   arr.forEach((x,i)=>makeArrange(card,{key:'wr-arr'+i, q:(i+1)+') Sắp xếp:', tokens:x.t, answer:x.a, explain:x.e}));
   c.appendChild(card);
 
   // B) Điền từ tạo câu (3 câu)
   card=el('div','card'); card.innerHTML='<h3>B · Điền từ để hoàn thành câu (Hán tự)</h3>';
-  makeFill(card,{key:'wr-fill0', q:'7) ___，您好！ (chào giáo viên)', accept:['老师'], explain:'老师，您好！'});
-  makeFill(card,{key:'wr-fill1', q:'8) 谢谢！ — ___！ (đáp lời cảm ơn)', accept:['不客气'], explain:'不客气！'});
-  makeFill(card,{key:'wr-fill2', q:'9) 大___好！ (chào mọi người)', accept:['家','大家'], explain:'大家好！'});
+  makeFill(card,{key:'wr-fill0', q:'7) 我七点___。 (thức dậy)', accept:['起床'], explain:'我七点起床。'});
+  makeFill(card,{key:'wr-fill1', q:'8) 洗澡以后，我从房间里___。 (đi ra)', accept:['出来'], explain:'我从房间里出来。'});
+  makeFill(card,{key:'wr-fill2', q:'9) 房间里有一个大___。 (cửa sổ)', accept:['窗户'], explain:'房间里有一个大窗户。'});
   c.appendChild(card);
 
   // C) Viết theo gợi ý — mở, có đáp án mẫu + checklist tự chấm
   card=el('div','card'); card.innerHTML='<h3>C · Viết câu theo gợi ý</h3>'+
     '<p style="color:var(--ink-soft);font-size:.9em">✍️ Đây là bài viết mở — hệ thống <b>không tự chấm</b>. Viết xong, nhấn “Xem đáp án mẫu” và tự đối chiếu theo checklist.</p>';
   const prompts=[
-    {p:'10) Viết lời chào cả lớp.', sample:'大家好！', chk:['Dùng 大家','Có 好','Đúng dấu chấm than']},
-    {p:'11) Viết lời cảm ơn giáo viên.', sample:'谢谢老师！', chk:['Dùng 谢谢','Có 老师']},
-    {p:'12) Viết lời tạm biệt các bạn.', sample:'同学们，再见！', chk:['Dùng 同学们 (có 们)','Có 再见']}
+    {p:'10) Viết câu nói bạn thức dậy lúc 7 giờ.', sample:'我七点起床。', chk:['Có 起床','Có giờ (七点)']},
+    {p:'11) Dùng 先……然后…… tả buổi sáng của bạn.', sample:'我先洗脸，然后洗澡。', chk:['Dùng 先','Dùng 然后']},
+    {p:'12) Tả phòng của bạn (có giường / cửa sổ).', sample:'我的房间里有一张床和一个大窗户。', chk:['Dùng 房间','Có 床 hoặc 窗户']}
   ];
   prompts.forEach((x,i)=>{
     const b=el('div','ex-block'); b.appendChild(el('div','q',x.p));
@@ -1460,7 +1459,7 @@ function buildSpeaking(c){
 
   // A. Đọc theo
   let card=el('div','card'); card.innerHTML='<h3>A · Đọc theo (Nghe và nhắc lại)</h3>';
-  const shadow=[['你好！','nǐ hǎo','Xin chào!'],['老师，您好！','lǎoshī, nín hǎo','Thưa thầy/cô, em chào ạ!'],['大家好！','dàjiā hǎo','Chào mọi người!'],['谢谢！','xièxie','Cảm ơn!'],['不客气！','bú kèqi','Không có gì!'],['同学们，再见！','tóngxuémen, zàijiàn','Các bạn, tạm biệt!']];
+  const shadow=[['你几点起床？','nǐ jǐ diǎn qǐchuáng','Bạn thức dậy lúc mấy giờ?'],['我七点起床。','wǒ qī diǎn qǐchuáng','Tôi thức dậy lúc bảy giờ.'],['我先洗脸，然后洗澡。','wǒ xiān xǐ liǎn, ránhòu xǐzǎo','Tôi rửa mặt trước, sau đó tắm.'],['我在房间里面洗脸。','wǒ zài fángjiān lǐmiàn xǐ liǎn','Tôi rửa mặt ở trong phòng.'],['房间里有一个大窗户。','fángjiān lǐ yǒu yí ge dà chuānghu','Trong phòng có một cửa sổ lớn.'],['快起床！','kuài qǐchuáng','Mau thức dậy đi!']];
   shadow.forEach(([h,py,vi])=>{ const b=el('div','ex'); b.style.marginBottom='8px';
     b.innerHTML='<span class="zh" style="font-size:1.25em">'+h+'</span> <span class="py">'+py+'</span><br><small style="color:var(--ink-soft)">'+vi+'</small><br>';
     const slow=el('button','spk','🐢 Chậm'); slow.onclick=()=>TTS.speak(h,{rate:0.65});
@@ -1469,8 +1468,8 @@ function buildSpeaking(c){
   c.appendChild(card);
 
   // B. Đóng vai
-  card=el('div','card'); card.innerHTML='<h3>B · Đóng vai (Role-play)</h3><p style="color:var(--ink-soft)">Dựa trên Khóa văn 2. Nghe từng vai hoặc cả hội thoại.</p>';
-  const rp=[{r:'A · 老师',h:'大家好！'},{r:'B · 学生们',h:'老师，您好！'},{r:'A · 老师',h:'你们好！'},{r:'B · 学生们',h:'谢谢老师！'}];
+  card=el('div','card'); card.innerHTML='<h3>B · Đóng vai (Role-play)</h3><p style="color:var(--ink-soft)">Dựa trên hội thoại buổi sáng. Nghe từng vai hoặc cả hội thoại.</p>';
+  const rp=[{r:'A',h:'你几点起床？'},{r:'B',h:'我七点起床。'},{r:'A',h:'起床以后做什么？'},{r:'B',h:'我先洗脸，然后洗澡。'}];
   rp.forEach(x=>{ const b=el('div','ex'); b.style.marginBottom='6px';
     b.innerHTML='<b style="color:var(--brand)">'+x.r+'</b>: <span class="zh" style="font-size:1.15em">'+x.h+'</span> ';
     b.appendChild(spkBtn(x.h)); card.appendChild(b); });
@@ -1486,11 +1485,11 @@ function buildSpeaking(c){
   // C. Trả lời câu hỏi cá nhân (≥15)
   card=el('div','card'); card.innerHTML='<h3>C · Câu hỏi giao tiếp (15 tình huống)</h3><p style="color:var(--ink-soft)">Nói to đáp án của bạn, rồi bấm để xem/nghe câu trả lời mẫu.</p>';
   const qs=[
-    ['Chào một người bạn.','你好！'],['Chào giáo viên một cách lịch sự.','老师，您好！'],['Chào cả lớp.','大家好！'],
-    ['Chào các bạn (số nhiều).','你们好！'],['Cảm ơn giáo viên.','谢谢老师！'],['Đáp lại khi ai đó cảm ơn bạn.','不客气！'],
-    ['Tạm biệt giáo viên.','老师，再见！'],['Tạm biệt các bạn học.','同学们，再见！'],['Chào một bạn học mới.','同学，你好！'],
-    ['Chào AI Tiểu Ngữ.','小语，你好！'],['Giáo viên chào học sinh.','你们好！'],['Chào một người lớn tuổi đáng kính.','您好！'],
-    ['Nói lời cảm ơn ngắn gọn.','谢谢！'],['Học sinh đồng thanh chào thầy.','老师，您好！'],['Kết thúc buổi học, chào tạm biệt.','再见！']
+    ['Hỏi bạn thức dậy lúc mấy giờ.','你几点起床？'],['Nói bạn thức dậy lúc 7 giờ.','我七点起床。'],['Hỏi bạn ấy làm gì sau khi dậy.','起床以后做什么？'],
+    ['Nói bạn rửa mặt trước, rồi tắm.','我先洗脸，然后洗澡。'],['Hỏi bạn ấy rửa mặt ở đâu.','你在哪儿洗脸？'],['Nói bạn rửa mặt ở trong phòng.','我在房间里面洗脸。'],
+    ['Nói phòng bạn có một cái giường.','我的房间里有一张床。'],['Nói phòng bạn có một cửa sổ lớn.','房间里有一个大窗户。'],['Giục ai đó dậy nhanh.','快起床！'],
+    ['Nói bạn đi ra khỏi phòng.','我从房间里出来。'],['Nói sau khi tắm bạn đi học.','洗澡以后，我去学校。'],['Hỏi bây giờ bạn ấy đi đâu.','现在你去哪儿？'],
+    ['Nói bạn tắm mỗi ngày.','我每天洗澡。'],['Nói bạn đi vào phòng.','我进房间。'],['Hỏi trong phòng có gì.','房间里有什么？']
   ];
   qs.forEach((x,i)=>{ const b=el('div','ex-block'); b.style.borderBottom='1px solid var(--line)'; b.style.paddingBottom='8px';
     b.appendChild(el('div','q',(i+1)+') '+x[0]));
